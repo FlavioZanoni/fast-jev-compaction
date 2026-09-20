@@ -31,7 +31,7 @@ hooks surface before installing or loading it:
 export CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1
 export TYPESAFE_API_KEY="<your TypeSafe key>"   # optional; without it Jev is reached at OpenCode Zen
 
-claude plugin marketplace add FlavioZanoni/fast-jev-compaction
+claude plugin marketplace add tamaratran/fast-jev-compaction
 claude plugin install fast-jev-compaction@fast-jev-compaction
 ```
 

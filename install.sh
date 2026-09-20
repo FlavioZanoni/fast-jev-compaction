@@ -4,20 +4,20 @@
 # the Claude Code hook runs from source. No API key is needed; without
 # TYPESAFE_API_KEY the plugin uses OpenCode Zen's free Jev.
 #
-#   curl -fsSL https://raw.githubusercontent.com/FlavioZanoni/fast-jev-compaction/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/tamaratran/fast-jev-compaction/main/install.sh | sh
 #   curl -fsSL ... | sh -s -- claude       # Claude Code instead of OpenCode
 #   curl -fsSL ... | sh -s -- all          # both
 #   ./install.sh opencode --dir ~/src/fast-jev-compaction   # use this checkout
 #
 # OpenCode 2 with `opencode` on PATH: `opencode plugin add` installs the git
-# package (FAST_JEV_PACKAGE, default github:FlavioZanoni/fast-jev-compaction).
+# package (FAST_JEV_PACKAGE, default github:tamaratran/fast-jev-compaction).
 # Otherwise (OpenCode 1, or --file): a git checkout in FAST_JEV_DIR (default
 # ~/.local/share/fast-jev-compaction, ref FAST_JEV_REF, default main) and one
 # file in ~/.config/opencode/plugins/ that loads it.
 set -eu
 
-REPO="https://github.com/FlavioZanoni/fast-jev-compaction.git"
-PACKAGE="${FAST_JEV_PACKAGE:-github:FlavioZanoni/fast-jev-compaction}"
+REPO="https://github.com/tamaratran/fast-jev-compaction.git"
+PACKAGE="${FAST_JEV_PACKAGE:-github:tamaratran/fast-jev-compaction}"
 TARGET="opencode"
 MODE="auto"
 DIR="${FAST_JEV_DIR:-$HOME/.local/share/fast-jev-compaction}"
@@ -93,7 +93,7 @@ install_opencode() {
 # Claude Code: the repository is its own plugin marketplace.
 install_claude() {
   need claude
-  claude plugin marketplace add FlavioZanoni/fast-jev-compaction >/dev/null 2>&1 || true
+  claude plugin marketplace add tamaratran/fast-jev-compaction >/dev/null 2>&1 || true
   claude plugin install fast-jev-compaction@fast-jev-compaction
   say "installed Claude Code plugin; function hooks must be enabled:"
   say '  { "env": { "CLAUDE_CODE_ENABLE_FUNCTION_HOOKS": "1" } }   # in ~/.claude/settings.json'

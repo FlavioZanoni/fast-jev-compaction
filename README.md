@@ -16,15 +16,15 @@ OpenCode 2 installs plugins straight from GitHub (the entry it loads,
 `opencode/server.js`, is committed, so no build is needed):
 
 ```sh
-opencode plugin add github:FlavioZanoni/fast-jev-compaction
+opencode plugin add github:tamaratran/fast-jev-compaction
 ```
 
 Everything else goes through the install script, which needs only `git`:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/FlavioZanoni/fast-jev-compaction/main/install.sh | sh              # OpenCode
-curl -fsSL https://raw.githubusercontent.com/FlavioZanoni/fast-jev-compaction/main/install.sh | sh -s -- claude  # Claude Code
-curl -fsSL https://raw.githubusercontent.com/FlavioZanoni/fast-jev-compaction/main/install.sh | sh -s -- all     # both
+curl -fsSL https://raw.githubusercontent.com/tamaratran/fast-jev-compaction/main/install.sh | sh              # OpenCode
+curl -fsSL https://raw.githubusercontent.com/tamaratran/fast-jev-compaction/main/install.sh | sh -s -- claude  # Claude Code
+curl -fsSL https://raw.githubusercontent.com/tamaratran/fast-jev-compaction/main/install.sh | sh -s -- all     # both
 ```
 
 On OpenCode 2 the script runs `opencode plugin add` for you; on OpenCode 1
@@ -34,7 +34,7 @@ version loads on the next start (`opencode service restart` for OpenCode 2's
 background server). For Claude Code it adds the repository as a marketplace
 and installs the plugin; function hooks must be enabled (see below). Run
 `./install.sh --help` for `--dir`, `--ref` and `--file`. To remove: `opencode
-plugin remove github:FlavioZanoni/fast-jev-compaction`, or delete the plugin
+plugin remove github:tamaratran/fast-jev-compaction`, or delete the plugin
 file and the checkout.
 
 ## What and why
@@ -187,7 +187,7 @@ Then add this repository as a plugin marketplace and install the plugin,
 either from the shell or as slash commands inside a session:
 
 ```sh
-claude plugin marketplace add FlavioZanoni/fast-jev-compaction
+claude plugin marketplace add tamaratran/fast-jev-compaction
 claude plugin install fast-jev-compaction@fast-jev-compaction
 ```
 
@@ -260,20 +260,20 @@ export to the committed `opencode/server.js`. OpenCode 2, from the shell or in
 `opencode.json` (the object form takes options):
 
 ```sh
-opencode plugin add github:FlavioZanoni/fast-jev-compaction
+opencode plugin add github:tamaratran/fast-jev-compaction
 ```
 
 ```json
-{ "plugins": [{ "package": "github:FlavioZanoni/fast-jev-compaction", "options": { "keepThreshold": 0.4 } }] }
+{ "plugins": [{ "package": "github:tamaratran/fast-jev-compaction", "options": { "keepThreshold": 0.4 } }] }
 ```
 
 OpenCode 1, in `opencode.json`:
 
 ```json
-{ "plugin": ["github:FlavioZanoni/fast-jev-compaction"] }
+{ "plugin": ["github:tamaratran/fast-jev-compaction"] }
 ```
 
-or with options `{ "plugin": [["github:FlavioZanoni/fast-jev-compaction", { "keepThreshold": 0.4 }]] }`.
+or with options `{ "plugin": [["github:tamaratran/fast-jev-compaction", { "keepThreshold": 0.4 }]] }`.
 A fork or branch works the same way: `github:you/fast-jev-compaction#branch`.
 `opencode plugin update` (OpenCode 2) fetches the latest commit. Installing
 runs no scripts, which is why the bundle is committed; after changing anything
